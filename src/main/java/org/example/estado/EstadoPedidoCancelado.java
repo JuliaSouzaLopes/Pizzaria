@@ -1,4 +1,4 @@
-package src.main;
+package org.example.estado;
 public class EstadoPedidoCancelado extends EstadoPedido {
 
     private EstadoPedidoCancelado() {};

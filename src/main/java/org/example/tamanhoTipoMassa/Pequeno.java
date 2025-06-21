@@ -1,4 +1,6 @@
-public class Pequeno extends Tamanho {
+package org.example.tamanhoTipoMassa;
+
+public class Pequeno extends TamanhoMassa {
 
     public Pequeno(float precoBase) {
         super(precoBase);

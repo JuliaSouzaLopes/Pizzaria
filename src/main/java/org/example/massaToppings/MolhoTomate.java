@@ -1,4 +1,4 @@
-
+package org.example.massaToppings;
 
 public class MolhoTomate extends MassaDecorator {
 

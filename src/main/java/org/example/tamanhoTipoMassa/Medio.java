@@ -1,4 +1,6 @@
-public class Medio extends Tamanho {
+package org.example.tamanhoTipoMassa;
+
+public class Medio extends TamanhoMassa {
 
     public Medio(float precoBase) {
         super(precoBase);

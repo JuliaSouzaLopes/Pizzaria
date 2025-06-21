@@ -1,4 +1,6 @@
-public class Brotinho extends Tamanho {
+package org.example.tamanhoTipoMassa;
+
+public class Brotinho extends TamanhoMassa {
 
     public Brotinho(float precoBase) {
         super(precoBase);

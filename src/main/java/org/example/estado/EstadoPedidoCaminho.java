@@ -1,4 +1,7 @@
-package src.main;
+package org.example.estado;
+
+import org.example.Pedido;
+
 public class EstadoPedidoCaminho extends EstadoPedido {
 
     private EstadoPedidoCaminho() {};

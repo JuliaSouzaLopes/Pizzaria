@@ -1,4 +1,4 @@
-package src.main;
+package org.example.tipoPedido;
 public class TipoPedidoCurtaDistancia implements ITipoPedido {
 
     public String getTipoPedido(){

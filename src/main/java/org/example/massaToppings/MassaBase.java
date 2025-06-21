@@ -1,4 +1,7 @@
 
+package org.example.massaToppings;
+
+import org.example.tamanhoTipoMassa.TamanhoMassa;
 
 public class MassaBase implements Massa {
 

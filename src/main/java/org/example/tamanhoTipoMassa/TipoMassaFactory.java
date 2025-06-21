@@ -1,3 +1,5 @@
+package org.example.tamanhoTipoMassa;
+
 public class TipoMassaFactory {
 
     public static TipoMassa obterMassa(String massa) {
@@ -9,7 +11,7 @@ public class TipoMassaFactory {
         } catch (Exception ex) {
             throw new IllegalArgumentException("Tipo inexistente");
         }
-        if (!(objeto instanceof IServico)) {
+        if (!(objeto instanceof TipoMassa)) {
             throw new IllegalArgumentException("Tipo inválido");
         }
         return (TipoMassa) objeto;

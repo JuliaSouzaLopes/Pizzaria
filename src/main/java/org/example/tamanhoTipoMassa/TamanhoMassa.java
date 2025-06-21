@@ -1,5 +1,7 @@
 
 
+package org.example.tamanhoTipoMassa;
+
 public abstract class TamanhoMassa {
 
     protected TipoMassa tipo;

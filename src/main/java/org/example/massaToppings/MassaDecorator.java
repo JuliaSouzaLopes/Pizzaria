@@ -1,4 +1,4 @@
-
+package org.example.massaToppings;
 
 public abstract class MassaDecorator implements Massa {
 
@@ -10,7 +10,7 @@ public abstract class MassaDecorator implements Massa {
         this.massa = massa;
     }
 
-    public massa getMassa() {
+    public Massa getMassa() {
         return massa;
     }
 

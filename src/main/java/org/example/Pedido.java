@@ -1,5 +1,10 @@
 package org.example;
 
+import org.example.estado.EstadoPedido;
+import org.example.estado.EstadoPedidoRecebido;
+import org.example.massaToppings.Massa;
+import org.example.tipoPedido.ITipoPedido;
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -8,15 +13,23 @@ public class Pedido implements Observable {
     private EstadoPedido estado;
     private ITipoPedido tipoPedido;
     public Massa massa;
+    public double precoTotal;
      
     
 
-    public Pedido(EstadoPedido estado, ITipoPedido tipoPedido) {
-         this.estado = estado;
-         this.tipoPedido = tipoPedido;
+    public Pedido() {
+         this.estado = EstadoPedidoRecebido.getInstance();
      }
 
-     public void setEstado(EstadoPedido estado) {
+     public ITipoPedido getTipo(){
+        return this.tipoPedido;
+     }
+
+     public void setTipoPedido (ITipoPedido tipoPedido){
+        this.tipoPedido = tipoPedido;
+     }
+
+    public void setEstado(EstadoPedido estado) {
         this.estado = estado;
      }
 

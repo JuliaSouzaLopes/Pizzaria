@@ -1,4 +1,4 @@
-package src.main;
+package org.example.tipoPedido;
 
 public class TipoPedidoFactory {
 
@@ -11,7 +11,7 @@ public class TipoPedidoFactory {
         } catch (Exception ex) {
             throw new IllegalArgumentException("Tipo inexistente");
         }
-        if (!(objeto instanceof IServico)) {
+        if (!(objeto instanceof ITipoPedido)) {
             throw new IllegalArgumentException("Tipo inválido");
         }
         return (ITipoPedido) objeto;

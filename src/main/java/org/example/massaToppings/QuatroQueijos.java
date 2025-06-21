@@ -1,5 +1,5 @@
 
-
+package org.example.massaToppings;
 public class QuatroQueijos extends MassaDecorator {
 
     public QuatroQueijos(Massa massa) {
@@ -11,7 +11,6 @@ public class QuatroQueijos extends MassaDecorator {
     }
 
     public String getTopping() {
-        return "Quatro Queijos
-        ";
+        return "Quatro Queijos";
     }
 }
