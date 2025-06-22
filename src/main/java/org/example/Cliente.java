@@ -13,7 +13,7 @@ public class Cliente implements Observer {
     }
 
     public String getUltimaNotificacao() {
-        return ultimaNotificacao;
+        return this.ultimaNotificacao;
     }
 
     public void fazerPedido(Pedido pedido) {

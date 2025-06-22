@@ -1,5 +1,7 @@
 package org.example.massaToppings;
 
+import org.example.tamanhoTipoMassa.TamanhoMassa;
+
 public abstract class MassaDecorator implements Massa {
 
     private Massa massa;

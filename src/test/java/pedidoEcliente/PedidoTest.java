@@ -1,5 +1,6 @@
 package pedidoEcliente;
 
+import org.example.MassaPedida;
 import org.example.Pedido;
 import org.example.massaToppings.*;
 import org.example.tamanhoTipoMassa.Grande;
@@ -45,10 +46,12 @@ class PedidoTest {
         TipoMassa tipoMassa = obterMassa("Calzone");
         Grande grande = new Grande(8.00);
         grande.setTipo(tipoMassa);
-        Massa massa = new Calabresa(new Mucarela(new MolhoTomate(new MassaBase())));
-        massa.setTamanho(grande);
-        pedido.setMassa(massa);
-        assertEquals("42.50", pedido.getPrecoTotal());
+        Massa massa = new Calabresa(new Mucarela(new MolhoTomate(new MassaBase(6))));
+        MassaPedida massaPedida = new MassaPedida();
+        massaPedida.setMassa(massa);
+        massaPedida.setTamanho(grande);
+        pedido.setMassaPedida(massaPedida);
+        assertEquals(42.50, pedido.getPrecoTotal());
     }
 
 }

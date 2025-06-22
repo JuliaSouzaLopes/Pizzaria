@@ -6,7 +6,7 @@ public class TipoMassaFactory {
         Class classe = null;
         Object objeto = null;
         try {
-            classe = Class.forName("TipoMassa" + massa);
+            classe = Class.forName("org.example.tamanhoTipoMassa.TipoMassa" + massa);
             objeto = classe.newInstance();
         } catch (Exception ex) {
             throw new IllegalArgumentException("Tipo inexistente");

@@ -1,5 +1,7 @@
 package org.example.massaToppings;
 
+import org.example.tamanhoTipoMassa.TamanhoMassa;
+
 public class MolhoTomate extends MassaDecorator {
 
     public MolhoTomate(Massa massa) {
@@ -13,4 +15,6 @@ public class MolhoTomate extends MassaDecorator {
     public String getTopping() {
         return "Molho Tomate";
     }
+
+
 }

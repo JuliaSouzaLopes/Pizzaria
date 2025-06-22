@@ -6,7 +6,7 @@ public class TipoPedidoFactory {
         Class classe = null;
         Object objeto = null;
         try {
-            classe = Class.forName("TipoPedido" + pedido);
+            classe = Class.forName("org.example.tipoPedido.TipoPedido" + pedido);
             objeto = classe.newInstance();
         } catch (Exception ex) {
             throw new IllegalArgumentException("Tipo inexistente");

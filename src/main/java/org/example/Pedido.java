@@ -4,6 +4,7 @@ import org.example.estado.EstadoPedido;
 import org.example.estado.EstadoPedidoRecebido;
 import org.example.massaToppings.Massa;
 import org.example.tipoPedido.ITipoPedido;
+import org.vafer.jdeb.shaded.commons.io.input.ObservableInputStream;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -13,7 +14,7 @@ public class Pedido extends Observable {
     private EstadoPedido estado;
     private ITipoPedido tipoPedido;
 
-    public Massa massa;
+    public MassaPedida massaPedida;
     public double precoTotal;
      
     
@@ -22,9 +23,9 @@ public class Pedido extends Observable {
          this.estado = EstadoPedidoRecebido.getInstance();
      }
 
-    public Massa getMassa() { return this.massa; }
+    public MassaPedida getMassaPedida() { return this.massaPedida; }
 
-    public void setMassa (Massa massa) { this.massa = massa; }
+    public void setMassaPedida (MassaPedida massaPedida) { this.massaPedida = massaPedida; }
     public ITipoPedido getTipo(){
         return this.tipoPedido;
      }
@@ -33,7 +34,7 @@ public class Pedido extends Observable {
         this.tipoPedido = tipoPedido;
      }
 
-    public double getPrecoTotal () {return tipoPedido.getFrete()+massa.getPreco();}
+    public double getPrecoTotal () {return tipoPedido.getFrete()+massaPedida.getPreco();}
 
     public void setEstado(EstadoPedido estado) {
         this.estado = estado;
@@ -59,7 +60,8 @@ public class Pedido extends Observable {
         return estado.cancelar(this);
      }
 
-    public String getNomeEstado(){
+    @Override
+     public String toString(){
         return estado.getEstado();
      }
 

@@ -16,6 +16,7 @@ public class ClienteTest {
         pedido.setTipoPedido(tipoPedido);
         Cliente cliente = new Cliente ("Julia");
         cliente.fazerPedido(pedido);
+        pedido.receber();
         pedido.atualizacao();
         assertEquals("Julia, seu pedido está recebido.", cliente.getUltimaNotificacao());
     }
