@@ -12,6 +12,8 @@ public abstract class TamanhoMassa {
         this.precoBase = precoBase;
     }
 
+    public TipoMassa getTipoMassa(){ return this.tipo;}
+
     public void setTipo(TipoMassa tipo) {
         this.tipo = tipo;
     }
@@ -20,5 +22,5 @@ public abstract class TamanhoMassa {
         this.precoBase = precoBase;
     }
 
-    public abstract double calcularPreco();
+    public double calcularPreco(){return this.precoBase + this.getTipoMassa().modificadorPreco();}
 }

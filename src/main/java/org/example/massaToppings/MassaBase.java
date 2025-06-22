@@ -7,22 +7,26 @@ public class MassaBase implements Massa {
 
     public TamanhoMassa tamanho;
 
-    public double getPreco() {
-        return 0;
-    }
+    public float preco;
 
-    public MassaBase() {
+    public MassaBase() {}
 
+    public MassaBase (float preco) {
+        this.preco = preco;
     }
 
     public MassaBase (TamanhoMassa tamanho) {
         this.tamanho = tamanho;
+    }
+    public double getPreco (){
+        return preco + tamanho.calcularPreco();
     }
 
     public TamanhoMassa getTamanho(){
         return tamanho;
     }
 
+    public void setTamanho (TamanhoMassa tamanho) {this.tamanho = tamanho;}
     public String getSabor () {
         return "Massa";
     }

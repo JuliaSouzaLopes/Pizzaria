@@ -12,6 +12,7 @@ public class Pedido extends Observable {
 
     private EstadoPedido estado;
     private ITipoPedido tipoPedido;
+
     public Massa massa;
     public double precoTotal;
      
@@ -21,6 +22,9 @@ public class Pedido extends Observable {
          this.estado = EstadoPedidoRecebido.getInstance();
      }
 
+    public Massa getMassa() { return this.massa; }
+
+    public void setMassa (Massa massa) { this.massa = massa; }
     public ITipoPedido getTipo(){
         return this.tipoPedido;
      }
@@ -28,6 +32,8 @@ public class Pedido extends Observable {
     public void setTipoPedido (ITipoPedido tipoPedido){
         this.tipoPedido = tipoPedido;
      }
+
+    public double getPrecoTotal () {return tipoPedido.getFrete()+massa.getPreco();}
 
     public void setEstado(EstadoPedido estado) {
         this.estado = estado;
