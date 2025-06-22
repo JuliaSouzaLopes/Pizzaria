@@ -17,15 +17,12 @@ public class EstadoPedidoTest {
 
     private Pedido pedido;
     private Cliente cliente;
-    private ITipoPedido tipoPedido;
 
     @BeforeEach
     void setUp(){
         cliente = new Cliente("Julia");
         pedido = new Pedido ();
-        tipoPedido = TipoPedidoFactory.obterPedido("CurtaDistancia");
         cliente.fazerPedido(pedido);
-        pedido.setTipoPedido(tipoPedido);
         pedido.setEstado(EstadoPedidoRecebido.getInstance());
     }
 
