@@ -22,4 +22,3 @@ public abstract class TamanhoMassa {
 
     public abstract float calcularPreco();
 }
-}

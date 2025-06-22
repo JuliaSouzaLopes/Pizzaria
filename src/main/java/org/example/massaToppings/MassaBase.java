@@ -5,7 +5,8 @@ import org.example.tamanhoTipoMassa.TamanhoMassa;
 
 public class MassaBase implements Massa {
 
-        public TamanhoMassa tamanho;
+    public TamanhoMassa tamanho;
+
 
     public MassaBase() {}
 

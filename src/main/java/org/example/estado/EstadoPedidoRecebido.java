@@ -5,7 +5,7 @@ import org.example.Pedido;
 public class EstadoPedidoRecebido extends EstadoPedido {
 
     private EstadoPedidoRecebido() {};
-    private static EstadoPedidoRecebido instance = new EstadoPedidoRecebido());
+    private static EstadoPedidoRecebido instance = new EstadoPedidoRecebido();
     public static EstadoPedidoRecebido getInstance() {
         return instance;
     }

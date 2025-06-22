@@ -21,7 +21,7 @@ public class Cliente implements Observer {
     }
 
     public void update(Observable pedido, Object arg1) {
-        this.ultimaNotificacao = this.nome + ", seu pedido está " + pedido.getNomeEstado();
+        this.ultimaNotificacao = this.nome + ", seu pedido está " + pedido.toString();
     }
 
 }

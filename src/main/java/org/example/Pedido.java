@@ -8,7 +8,7 @@ import org.example.tipoPedido.ITipoPedido;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Pedido implements Observable {
+public class Pedido extends Observable {
 
     private EstadoPedido estado;
     private ITipoPedido tipoPedido;
@@ -21,11 +21,11 @@ public class Pedido implements Observable {
          this.estado = EstadoPedidoRecebido.getInstance();
      }
 
-     public ITipoPedido getTipo(){
+    public ITipoPedido getTipo(){
         return this.tipoPedido;
      }
 
-     public void setTipoPedido (ITipoPedido tipoPedido){
+    public void setTipoPedido (ITipoPedido tipoPedido){
         this.tipoPedido = tipoPedido;
      }
 
@@ -33,37 +33,37 @@ public class Pedido implements Observable {
         this.estado = estado;
      }
 
-     public boolean receber(){
+    public boolean receber(){
         return estado.receber(this);
      }
 
-     public boolean preparar(){
+    public boolean preparar(){
         return estado.preparar(this);
      }
 
-     public boolean encaminhar(){
+    public boolean encaminhar(){
         return estado.encaminhar(this);
      }
 
-     public boolean entregar(){
+    public boolean entregar(){
         return estado.entregar(this);
      }
 
-     public boolean cancelar(){
+    public boolean cancelar(){
         return estado.cancelar(this);
      }
 
-     public String getNomeEstado(){
+    public String getNomeEstado(){
         return estado.getEstado();
      }
 
-     public EstadoPedido getEstado(){
+    public EstadoPedido getEstado(){
         return estado;
      }
 
     public void atualizacao() {
          setChanged();
          notifyObservers();
-     }
+    }
 
 }
