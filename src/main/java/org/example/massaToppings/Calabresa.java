@@ -6,7 +6,7 @@ public class Calabresa extends MassaDecorator {
         super(massa);
     }
 
-    public float getPrecoAdicional() {
+    public double getPrecoAdicional() {
         return 10.0f;
     }
 

@@ -1,6 +1,6 @@
 package org.example.massaToppings;
 
 public interface Massa {
-    float getPreco();
+    double getPreco();
     String getSabor();
 }

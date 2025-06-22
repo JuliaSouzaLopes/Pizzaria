@@ -2,9 +2,11 @@ package org.example.tamanhoTipoMassa;
 
 public class TipoMassaPizza implements TipoMassa {
 
-    public String getTipoMassa(){}
+    public String getTipoMassa(){
+        return "pizza";
+    }
 
-    public float modificadorPreco() {
-        return 2.50;
+    public double modificadorPreco() {
+        return 2.50f;
     }
 }

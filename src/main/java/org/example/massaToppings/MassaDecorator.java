@@ -18,9 +18,9 @@ public abstract class MassaDecorator implements Massa {
         this.massa = massa;
     }
 
-    public abstract float getPrecoAdicional();
+    public abstract double getPrecoAdicional();
 
-    public float getPreco() {
+    public double getPreco() {
         return this.massa.getPreco() + this.getPrecoAdicional();
     }
 

@@ -6,7 +6,7 @@ public class QuatroQueijos extends MassaDecorator {
         super(massa);
     }
 
-    public float getPrecoAdicional() {
+    public double getPrecoAdicional() {
         return 12.0f;
     }
 

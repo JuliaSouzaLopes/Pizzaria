@@ -2,7 +2,7 @@ package pedidoEstado;
 
 import org.example.Cliente;
 import org.example.Pedido;
-import org.example.estado.EstadoPedidoRecebido;
+import org.example.estado.*;
 import org.example.massaToppings.*;
 import org.example.tipoPedido.ITipoPedido;
 import org.example.tipoPedido.TipoPedidoFactory;
@@ -40,7 +40,6 @@ public class EstadoPedidoTest {
     @Test
     void ValidarPreparandoQuandoPedidoRecebido(){
         cliente.fazerPedido(pedido);
-        pedido.receber();
         pedido.preparar();
         assertEquals ("em preparação.", pedido.getEstado().getEstado());
         assertEquals("Julia, seu pedido está em preparação.", cliente.getUltimaNotificacao());
@@ -49,7 +48,6 @@ public class EstadoPedidoTest {
     @Test
     void ValidarACaminhoQuandoPedidoRecebido(){
         cliente.fazerPedido(pedido);
-        pedido.receber();
         pedido.encaminhar();
         assertEquals ("recebido.", pedido.getEstado().getEstado());
         assertNull (cliente.getUltimaNotificacao());
@@ -58,7 +56,6 @@ public class EstadoPedidoTest {
     @Test
     void ValidarEntregueQuandoPedidoRecebido(){
         cliente.fazerPedido(pedido);
-        pedido.receber();
         pedido.entregar();
         assertEquals ("recebido.", pedido.getEstado().getEstado());
         assertNull (cliente.getUltimaNotificacao());
@@ -67,7 +64,6 @@ public class EstadoPedidoTest {
     @Test
     void ValidarCanceladoQuandoPedidoRecebido(){
         cliente.fazerPedido(pedido);
-        pedido.receber();
         pedido.cancelar();
         assertEquals ("cancelado.", pedido.getEstado().getEstado());
         assertEquals("Julia, seu pedido está cancelado.", cliente.getUltimaNotificacao());
@@ -75,8 +71,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarPedidoRecebidoQuandoPreparando(){
+        pedido.setEstado(EstadoPedidoPreparacao.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.preparar();
         pedido.receber();
         assertEquals ("em preparação.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -84,6 +80,7 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarPreparandoQuandoPreparando(){
+        pedido.setEstado(EstadoPedidoPreparacao.getInstance());
         cliente.fazerPedido(pedido);
         pedido.preparar();
         assertEquals ("em preparação.", pedido.getEstado().getEstado());
@@ -92,8 +89,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarACaminhoQuandoPreparando(){
+        pedido.setEstado(EstadoPedidoPreparacao.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.preparar();
         pedido.encaminhar();
         assertEquals ("a caminho.", pedido.getEstado().getEstado());
         assertEquals("Julia, seu pedido está a caminho.", cliente.getUltimaNotificacao());
@@ -101,8 +98,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarEntregueQuandoPreparando(){
+        pedido.setEstado(EstadoPedidoPreparacao.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.preparar();
         pedido.entregar();
         assertEquals ("a caminho.", pedido.getEstado().getEstado());
         assertNull (cliente.getUltimaNotificacao());
@@ -110,8 +107,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarCanceladoQuandoPreparando(){
+        pedido.setEstado(EstadoPedidoPreparacao.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.preparar();
         pedido.cancelar();
         assertEquals ("cancelado.", pedido.getEstado().getEstado());
         assertEquals("Julia, seu pedido está cancelado.", cliente.getUltimaNotificacao());
@@ -119,8 +116,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarPedidoRecebidoQuandoACaminho(){
+        pedido.setEstado(EstadoPedidoCaminho.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.encaminhar();
         pedido.receber();
         assertEquals ("a caminho.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -128,8 +125,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarPreparandoQuandoACaminho(){
+        pedido.setEstado(EstadoPedidoCaminho.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.encaminhar();
         pedido.preparar();
         assertEquals ("a caminho.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -137,6 +134,7 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarACaminhoQuandoACaminho(){
+        pedido.setEstado(EstadoPedidoCaminho.getInstance());
         cliente.fazerPedido(pedido);
         pedido.encaminhar();
         assertEquals ("a caminho.", pedido.getEstado().getEstado());
@@ -145,8 +143,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarEntregueQuandoACaminho(){
+        pedido.setEstado(EstadoPedidoCaminho.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.encaminhar();
         pedido.entregar();
         assertEquals ("entregue.", pedido.getEstado().getEstado());
         assertEquals("Julia, seu pedido está entregue.", cliente.getUltimaNotificacao());
@@ -154,8 +152,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarCanceladoQuandoACaminho(){
+        pedido.setEstado(EstadoPedidoCaminho.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.encaminhar();
         pedido.cancelar();
         assertEquals ("cancelado.", pedido.getEstado().getEstado());
         assertEquals("Julia, seu pedido está cancelado.", cliente.getUltimaNotificacao());
@@ -163,8 +161,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarPedidoRecebidoQuandoEntregue(){
+        pedido.setEstado(EstadoPedidoEntregue.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.entregar();
         pedido.receber();
         assertEquals ("entregue.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -172,8 +170,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarPreparandoQuandoEntregue(){
+        pedido.setEstado(EstadoPedidoEntregue.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.entregar();
         pedido.preparar();
         assertEquals ("entregue.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -181,8 +179,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarACaminhoQuandoEntregue(){
+        pedido.setEstado(EstadoPedidoEntregue.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.entregar();
         pedido.encaminhar();
         assertEquals ("entregue.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -190,6 +188,7 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarEntregueQuandoEntregue(){
+        pedido.setEstado(EstadoPedidoEntregue.getInstance());
         cliente.fazerPedido(pedido);
         pedido.entregar();
         assertEquals ("entregue.", pedido.getEstado().getEstado());
@@ -198,8 +197,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarCanceladoQuandoEntregue(){
+        pedido.setEstado(EstadoPedidoEntregue.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.entregar();
         pedido.cancelar();
         assertEquals ("entregue.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -207,8 +206,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarPedidoRecebidoQuandoCancelado(){
+        pedido.setEstado(EstadoPedidoCancelado.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.cancelar();
         pedido.receber();
         assertEquals ("cancelado.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -216,8 +215,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarPreparandoQuandoCancelado(){
+        pedido.setEstado(EstadoPedidoCancelado.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.cancelar();
         pedido.preparar();
         assertEquals ("cancelado.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -225,8 +224,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarACaminhoQuandoCancelado(){
+        pedido.setEstado(EstadoPedidoCancelado.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.cancelar();
         pedido.encaminhar();
         assertEquals ("cancelado.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -234,8 +233,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarEntregueQuandoCancelado(){
+        pedido.setEstado(EstadoPedidoCancelado.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.cancelar();
         pedido.entregar();
         assertEquals ("cancelado.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());
@@ -243,8 +242,8 @@ public class EstadoPedidoTest {
 
     @Test
     void ValidarCanceladoQuandoCancelado(){
+        pedido.setEstado(EstadoPedidoCancelado.getInstance());
         cliente.fazerPedido(pedido);
-        pedido.entregar();
         pedido.cancelar();
         assertEquals ("cancelado.", pedido.getEstado().getEstado());
         assertNull(cliente.getUltimaNotificacao());

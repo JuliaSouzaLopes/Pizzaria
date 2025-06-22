@@ -6,9 +6,9 @@ public abstract class TamanhoMassa {
 
     protected TipoMassa tipo;
 
-    protected float precoBase;
+    protected double precoBase;
 
-    public TamanhoMassa(float precoBase) {
+    public TamanhoMassa(double precoBase) {
         this.precoBase = precoBase;
     }
 
@@ -16,9 +16,9 @@ public abstract class TamanhoMassa {
         this.tipo = tipo;
     }
 
-    public void setPrecoBase(float precoBase) {
+    public void setPrecoBase(double precoBase) {
         this.precoBase = precoBase;
     }
 
-    public abstract float calcularPreco();
+    public abstract double calcularPreco();
 }

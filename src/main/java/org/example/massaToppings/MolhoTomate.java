@@ -6,7 +6,7 @@ public class MolhoTomate extends MassaDecorator {
         super(massa);
     }
 
-    public float getPrecoAdicional() {
+    public double getPrecoAdicional() {
         return 2.0f;
     }
 

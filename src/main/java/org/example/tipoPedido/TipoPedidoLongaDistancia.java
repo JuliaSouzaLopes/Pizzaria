@@ -6,8 +6,8 @@ public class TipoPedidoLongaDistancia implements ITipoPedido {
         return "Entrega a longa distância";
     }
 
-    public float getFrete(){
-        return 10.0;
+    public double getFrete(){
+        return 10.0f;
     }
 
 }

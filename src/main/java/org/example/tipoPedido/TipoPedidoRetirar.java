@@ -6,8 +6,8 @@ public class TipoPedidoRetirar implements ITipoPedido {
         return "Retirar no restaurante";
     }
 
-    public float getFrete(){
-        return 0.0;
+    public double getFrete(){
+        return 0.0f;
     }
 
 }

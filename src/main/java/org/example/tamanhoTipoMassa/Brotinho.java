@@ -2,11 +2,11 @@ package org.example.tamanhoTipoMassa;
 
 public class Brotinho extends TamanhoMassa {
 
-    public Brotinho(float precoBase) {
+    public Brotinho(double precoBase) {
         super(precoBase);
     }
 
-    public float calcularPreco() {
+    public double calcularPreco() {
         return this.precoBase + (this.tipo.modificadorPreco());
     }
 

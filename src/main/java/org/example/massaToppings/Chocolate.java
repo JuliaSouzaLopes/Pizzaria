@@ -6,7 +6,7 @@ public class Chocolate extends MassaDecorator {
         super(massa);
     }
 
-    public float getPrecoAdicional() {
+    public double getPrecoAdicional() {
         return 8.0f;
     }
 
